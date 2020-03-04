@@ -31,11 +31,19 @@ function startGame() {
 };
 
 document.onkeydown = function (e) {
-  switch (e.keyCode) {
-    case 37:
-      car.leftArrowPressed();
-      break;
-    case 39: 
-      car.rightArrowPressed(); break;
-  }
-}
+  
+    switch (e.keyCode) {
+      case 37:
+        if (car.x > 50) {
+          car.leftArrowPressed();
+        } else {
+        }
+        break;
+      case 39: 
+      if (car.x < 420) {
+        car.rightArrowPressed();
+      } else {
+      }
+      break;    
+    }
+} 
