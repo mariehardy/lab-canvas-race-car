@@ -25,10 +25,10 @@ let car = {
     // speedX: 0,
     // speedY: 0,
     leftArrowPressed: function () {
-        this.x -= 20
+        this.x -= 30
     },
     rightArrowPressed: function () {
-        this.x += 20
+        this.x += 30
     },
     update: function () {
         let img = new Image();
@@ -73,7 +73,7 @@ class Obstacle {
     constructor(posX) {
         this.x = posX
         this.y = 0
-        this.width = 100
+        this.width = 200
         this.height = 30
         this.speedX = 0
         this.speedY = 0
@@ -96,7 +96,7 @@ class Obstacle {
     update() {
         context.fillStyle = 'red'
         context.fillRect(this.x, this.y, this.width, this.height);
-        this.y += 4
+        this.y += 3
     }
 }
 
@@ -105,11 +105,12 @@ class Obstacle {
 let obstacleArr = []
 // console.log(obstacleArr)
 
+let frameCounter = 0
+
 
 let draw = () => {
-    context.clearRect(0, 0, 500, 700)
-    let frameCounter = 0
-
+    context.clearRect(0, 0, canvas.width, canvas.height)
+    frameCounter ++
     backgroundImg()
 
 
@@ -126,10 +127,10 @@ let draw = () => {
 
 
     // after each 1 second
-    if (frameCounter % 60 === 0) {
-        // randomPosX = [10, 100, 400]
+    if (frameCounter % 180 === 0) {
+        randomPosX = Math.floor(Math.random() * 300)
         // add three new obstacles to the array
-        obstacleArr.push(new Obstacle(300))
+        obstacleArr.push(new Obstacle(randomPosX))
         
     }
 

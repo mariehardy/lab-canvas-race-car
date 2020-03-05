@@ -40,7 +40,7 @@ document.onkeydown = function (e) {
         }
         break;
       case 39: 
-      if (car.x < 420) {
+      if (car.x < canvas.width-70) {
         car.rightArrowPressed();
       } else {
       }
